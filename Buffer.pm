@@ -6,7 +6,10 @@ package String::Buffer;
 
 use strict;
 use vars qw( @ISA $VERSION );
-$VERSION = 0.04;
+$VERSION = 0.05;
+
+*append = \&write;
+*appendln = \&writeln;
 
 sub new
 {
@@ -53,47 +56,47 @@ __END__
 
 =head1 NAME
 
-String::Buffer - simple string buffer class.
+String::Buffer - a simple string buffer class.
 
 =head1 SYNOPSIS
 
   use String::Buffer;
-  my $buf = new String::Buffer();
+  my $buf = String::Buffer->new();
 
-  $buf->write('Foo');
-  print $out->read();
-  $out->flush();
+  $buf->writeln('Foo');
+  print $buf->read();
+  $buf->flush();
   $buf->write('Bar');
-  print $out->flush();
+  print $buf->flush();
 
 
 =head1 DESCRIPTION
 
-C<String::Buffer> provides a basic string buffer class.
+C<String::Buffer> provides a simple string buffer class.
 
 =head1 Functions
 
 =over 10
 
-=item new()
+=item String::Buffer->new()
 
-Create a new buffer object. Accepts a string as an argument.
+    Create a new buffer object. Accepts a string as an argument.
 
-=item write()
+=item $buf->write()
 
-Add some text to the buffer.
+    Add some text to the buffer.
 
-=item writeln()
+=item $buf->writeln()
 
-Add some text to the buffer, with a new line at the end.
+    Add some text to the buffer, with a new line at the end.
 
-=item read()
+=item $buf->read()
 
-Return the here-to-forth buffered content.
+    Return the here-to-forth buffered content.
 
-=item flush()
+=item $buf->flush()
 
-Empty out the output buffer.
+    Empty out the output buffer.
 
 =back
 

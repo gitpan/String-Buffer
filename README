@@ -1,6 +1,6 @@
 This is the String::Buffer module.
 
-String::Buffer provides a basic response object for use in a server-based perl parsed page environment.
+String::Buffer provides a simple string buffer class.
 
 To install the module:
 
